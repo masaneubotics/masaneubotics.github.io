@@ -10,105 +10,130 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #f5f5f5; /* Light gray background */
+            color: #333; /* Dark gray text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the page takes at least the full viewport height */
+            position: relative; /* Ensure the body is a positioned container for absolute positioning */
         }
-        header {
-            background-color: #fff;
-            color: #000;
-            padding: 1em 0;
-            text-align: center;
+	p {
+            text-align: justify;
+            margin-bottom: 1em;
         }
-        nav {
-            text-align: center;
-            padding: 1em;
-            background-color: #000;
+        .content {
+            flex: 1;
+            padding: 20px;
         }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #fff;
+        .chatbox {
+            width: 300px;
+            height: 200px; /* Smaller height */
+            background-color: #fff; /* White background */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            border-radius: 10px;
+            padding: 10px;
+            position: absolute; /* Position relative to the body */
+            bottom: 20px; /* 20px from the bottom */
+            right: 20px; /* 20px from the right */
+            overflow-y: auto; /* Add scrollbar if content exceeds height */
         }
-        section {
-            padding: 2em;
-            border-bottom: 1px solid #ccc;
+        .chatbox h2 {
+            margin-top: 0;
         }
-        section:nth-child(even) {
-            background-color: #fff;
+        .chatbox p {
+            margin-bottom: 10px;
         }
         footer {
             text-align: center;
-            padding: 1em;
-            background-color: #000;
-            color: #fff;
+            padding: 20px;
+            background-color: #ccc;
+            color: #555;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Masa Neubotics Technology</h1>
-    </header>
+    <div class="content">
+        <header>
+            <h1>Masa Neubotics Technology</h1>
+        </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#current-projects">Current Projects</a>
-        <a href="#past-projects">Past Projects</a>
-        <a href="#sahabat-iqra">Sahabat Iqra</a>
-    </nav>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#current-projects">Current Projects</a>
+            <a href="#past-projects">Past Projects</a>
+            <a href="#sahabat-iqra">Sahabat Iqra</a>
+        </nav>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Masa Neubotics Technology also known as masaneubotics is founded in August 8, 2022. Masaneubotics is currently providing research and prototyping services for power module and motor drive systems.</p>
-        <p> Address:
-             <Address> Lot 121, Kampung Telok, Jalan Bukit Minyak, 14000 Bukit Mertajam, Pulau Pinang, Malaysia.</Address>
-             <Address> Lot 143, Rancangan Sungai Manila, Jalan Luboh, 90009 Sandakan, Sabah, Malaysia.</Address>
-        <p> Email:
-            <Address> sitinursyuhada@masaneubotics.com (Director)<Address> 
-            <Address> mohdnazar@masaneubotics.com (Affiliate)<Address> 
-    </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At Masa Neubotics Technology, we transcend the conventional boundaries of a company – we are pioneers, innovators, and visionaries, united by a shared commitment to shaping the future of robotics and automation. Since our inception on August 8, 2022, our journey has been propelled by a passion for academic research and laboratory-scale prototyping in power module and motor drive systems.</p>
+    
+    	    <p>Fueled by an unwavering dedication to innovation, our team of engineers and researchers stands at the forefront of technological advancement, constantly pushing the limits of what's possible. From groundbreaking engineering research to the seamless execution of product development, we specialize in crafting tailored solutions that address the unique challenges faced by our clients.</p>
+    
+            <p>With a steadfast focus on excellence and reliability, we strive to deliver unparalleled quality services across industries. Whether it's conducting comprehensive feasibility studies, providing expert technical consulting, or leading prototype development initiatives, our mission remains resolute – to empower our clients to thrive in today's dynamic technological landscape.</p>
+    
+            <p>Nestled in the vibrant heart of Malaysia, our headquarters serve as a nexus of innovation, fostering a culture of collaboration, creativity, and forward-thinking solutions. We firmly believe in the transformative power of technology to enrich lives and catalyze positive change. Through relentless innovation and boundless creativity, we are rewriting the rules of possibility, one breakthrough at a time.</p>
+    
+            <p>Join us on our extraordinary journey as we continue to redefine the future of robotics and automation. Together, let's inspire, innovate, and shape a world where limitless possibilities abound.</p>
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Engineering Research</li>
-            <li>Prototyping Services</li>
-            <li>Product Development</li>
-            <li>Feasibility Studies</li>
-            <li>Technical Consulting</li>
-        </ul>
-    </section>
+            <p> Address:
+                 <Address> Lot 121, Kampung Telok, Jalan Bukit Minyak, 14000 Bukit Mertajam, Pulau Pinang, Malaysia</Address>
+                 <Address> Lot 143, Rancangan Sungai Manila, Jalan Luboh, 90009 Sandakan, Sabah, Malaysia </Address>
+            <p> Email:
+                <Address> sitinursyuhada@masaneubotics.com (Director)<Address> 
+                <Address> mohdnazar@masaneubotics.com (Affiliate)<Address> 
+        </section>
 
-    <section id="current-projects">
-        <h2>Current Projects</h2>
-        <p>Masaneubotics is currently engaged in several cutting-edge projects, including:</p>
-        <ul>
-            <li>Validation and reliability testing of artificaial neural network system implementation in motor drives application</li>
-            <li>Prototyping an amplifier circuit for bio-signal acquisition module</li>
-            <li>Testing rig for upperlimb motion analysis</li>
-            <li>Adjustable power module for fresh-water electrocoagulation application</li>
-        </ul>
-    </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Engineering Research</li>
+                <li>Prototyping Services</li>
+                <li>Product Development</li>
+                <li>Feasibility Studies</li>
+                <li>Technical Consulting</li>
+            </ul>
+        </section>
 
-    <section id="past-projects">
-        <h2>Past Projects</h2>
-        <p>Here are some of our successful past projects:</p>
-        <ul>
-            <li>Analog voltage source inverter prototyping</li>
-            <li>Artificial neural networks rainfall forcasting system and its graphical user interface</li>
-            <li>Experimental setup for induction motor drives moton analysis</li>
-        </ul>
-    </section>
+        <section id="current-projects">
+            <h2>Current Projects</h2>
+            <p>Masaneubotics is currently engaged in several cutting-edge projects, including:</p>
+            <ul>
+                <li>Validation and reliability testing of artificial neural network system implementation in motor drives application</li>
+                <li>Prototyping an amplifier circuit for bio-signal acquisition module</li>
+                <li>Testing rig for upper limb motion analysis</li>
+                <li>Adjustable power module for fresh-water electrocoagulation application</li>
+            </ul>
+        </section>
 
-    <section id="sahabat-iqra">
-        <h2>Sahabat Iqra</h2>
-        <p> For humanity, we share our vanue through community programs tailored to high value of technological advancement </p>
-        <ul>
-            <li>Kelas Mengaji</li>
-                <img src="link .png" alt="QR Code" style="width: 50px; height: auto;"></li>
-                <li><span style="color: red;">New!</span> Bazar Muhibah (Coming soon)</li>
-        </ul>
-    </section>
+        <section id="past-projects">
+            <h2>Past Projects</h2>
+            <p>Here are some of our successful past projects:</p>
+            <ul>
+                <li>Analog voltage source inverter prototyping</li>
+                <li>Artificial neural networks rainfall forecasting system and its graphical user interface</li>
+                <li>Experimental setup for induction motor drives motion analysis</li>
+            </ul>
+        </section>
+
+        <section id="sahabat-iqra">
+            <h2>Sahabat Iqra</h2>
+            <p> For humanity, we share our venue through community programs tailored to high value of technological advancement </p>
+            <ul>
+                <li>Kelas Mengaji</li>
+                    <img src="link .png" alt="QR Code" style="width: 50px; height: auto;"></li>
+                    <li><span style="color: red;">New!</span> Bazar Muhibah (Coming soon)</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="chatbox">
+        <h2>Chat</h2>
+        <p>Welcome to our website! How can we assist you today?</p>
+        <!-- Chatbox content can be added here -->
+    </div>
 
     <footer>
         <p>&copy; 2024 masaneubotics. All rights reserved.</p>
