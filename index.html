@@ -3,42 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Masa Neubotics Technology is a robotics and automation company focused on research, prototyping, and product development in Malaysia.">
     <title>Masa Neubotics Technology</title>
     <style>
+        :root {
+            --bg: #f4f7fb;
+            --panel: #ffffff;
+            --panel-alt: #eef4ff;
+            --primary: #133d75;
+            --primary-dark: #0d2a4e;
+            --accent: #1d7ae0;
+            --text: #1d2430;
+            --muted: #5d677a;
+            --line: #dfe7f3;
+            --success: #e7f9ee;
+            --success-text: #156a3d;
+            --warning: #fff4d8;
+            --warning-text: #7a4a00;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: #f5f5f5; /* Light gray background */
-            color: #333; /* Dark gray text */
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Ensure the page takes at least the full viewport height */
-            position: relative; /* Ensure the body is a positioned container for absolute positioning */
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 100%);
+            color: var(--text);
+            line-height: 1.6;
         }
-	p {
-            text-align: justify;
-            margin-bottom: 1em;
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
         }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         .content {
-            flex: 1;
-            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 20px 60px;
         }
- 
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            padding: 42px 24px 32px;
+            border-radius: 18px 18px 0 0;
+            box-shadow: 0 10px 25px rgba(19, 61, 117, 0.15);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: 0.02em;
+        }
+
+        .tagline {
+            margin: 10px 0 0;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: var(--panel);
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #f3f8ff;
+            border: 1px solid #dfeeff;
+            font-size: 0.92rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        section {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-top: 22px;
+            box-shadow: 0 8px 18px rgba(16, 32, 52, 0.04);
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: var(--primary-dark);
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            border-bottom: 2px solid var(--line);
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+
+        p {
+            margin: 0 0 1em;
+            text-align: justify;
+            color: var(--text);
+        }
+
+        ul {
+            margin: 0 0 0 1.2rem;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.55rem;
+        }
+
+        .contact-block {
+            background: var(--panel-alt);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+
+        .contact-block strong {
+            color: var(--primary-dark);
+        }
+
+        .contact-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+
+        .contact-list li {
+            margin-bottom: 0.7rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--warning);
+            color: var(--warning-text);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 999px;
+            margin-right: 8px;
+        }
+
+        .project-grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--panel-alt);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        th, td {
+            border: 1px solid var(--line);
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--panel-alt);
+            color: var(--primary-dark);
+        }
+
+        .qr-wrap {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .qr-wrap img {
+            width: 120px;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            background: #fff;
+            padding: 8px;
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #ccc;
-            color: #555;
+            padding: 24px 20px 40px;
+            background: #dfeaf8;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        @media (max-width: 640px) {
+            .content {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            section {
+                padding: 22px 18px;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
         }
     </style>
 </head>
 <body>
-
     <div class="content">
         <header>
             <h1>Masa Neubotics Technology</h1>
+            <p class="tagline">Robotics, automation, and applied engineering innovation for a smarter future.</p>
         </header>
 
         <nav>
@@ -52,25 +258,31 @@
 
         <section id="about">
             <h2>About Us</h2>
-            <p>At Masa Neubotics Technology, we transcend the conventional boundaries of a company – we are pioneers, innovators, and visionaries, united by a shared commitment to shaping the future of robotics and automation. Since our inception on August 8, 2022, our journey has been propelled by a passion for academic research and laboratory-scale prototyping in power module and motor drive systems.</p>
-    
-    	    <p>Fueled by an unwavering dedication to innovation, our team of engineers and researchers stands at the forefront of technological advancement, constantly pushing the limits of what's possible. From groundbreaking engineering research to the seamless execution of product development, we specialize in crafting tailored solutions that address the unique challenges faced by our clients.</p>
-    
-            <p>With a steadfast focus on excellence and reliability, we strive to deliver unparalleled quality services across industries. Whether it's conducting comprehensive feasibility studies, providing expert technical consulting, or leading prototype development initiatives, our mission remains resolute – to empower our clients to thrive in today's dynamic technological landscape.</p>
-    
+            <p>At Masa Neubotics Technology, we transcend the conventional boundaries of a company — we are pioneers, innovators, and visionaries united by a shared commitment to shaping the future of robotics and automation. Since our inception on August 8, 2022, our journey has been propelled by a passion for academic research and laboratory-scale prototyping in power module and motor drive systems.</p>
+
+            <p>Fueled by an unwavering dedication to innovation, our team of engineers and researchers stands at the forefront of technological advancement, constantly pushing the limits of what is possible. From groundbreaking engineering research to the seamless execution of product development, we specialize in crafting tailored solutions that address the unique challenges faced by our clients.</p>
+
+            <p>With a steadfast focus on excellence and reliability, we strive to deliver unparalleled quality services across industries. Whether it is conducting comprehensive feasibility studies, providing expert technical consulting, or leading prototype development initiatives, our mission remains resolute — to empower our clients to thrive in today’s dynamic technological landscape.</p>
+
             <p>Nestled in the vibrant heart of Malaysia, our headquarters serve as a nexus of innovation, fostering a culture of collaboration, creativity, and forward-thinking solutions. We firmly believe in the transformative power of technology to enrich lives and catalyze positive change. Through relentless innovation and boundless creativity, we are rewriting the rules of possibility, one breakthrough at a time.</p>
-    
-            <p>Join us on our extraordinary journey as we continue to redefine the future of robotics and automation. Together, let's inspire, innovate, and shape a world where limitless possibilities abound.</p>
 
-            <p> Address:
-                 <Address> No.9, Taman Bukit Slim, 35800 Slim River, Perak Darul Ridzuan (Mailing only)</Address>
-                 <Address> No.9, Lot 143, Jalan Luboh, Peringkat 2, Batu 12, Rancangan Sungai Manila, Jalan Luboh, 90009 Sandakan, Sabah, Malaysia (Workshop)</Address>
-                 <Address> 3L 1-2, Country Heights Apartment, Jalan Bantayan-Inanam, 88450 Penampang, Sabah, Malaysia (Mailing only) </Address>
-            <p> Email:
-                <Address> sitinursyuhada@masaneubotics.com (Director)<Address> 
-                <Address> sitinoraidah@masaneubotics.com (Affiliate)<Address> 
-                <Address> info@masaneubotics.com (Management)<Address>   
+            <p>Join us on our extraordinary journey as we continue to redefine the future of robotics and automation. Together, let us inspire, innovate, and shape a world where limitless possibilities abound.</p>
 
+            <div class="contact-block">
+                <p><strong>Address:</strong></p>
+                <ul class="contact-list">
+                    <li>No.9, Taman Bukit Slim, 35800 Slim River, Perak Darul Ridzuan (Mailing only)</li>
+                    <li>No.9, Lot 143, Jalan Luboh, Peringkat 2, Batu 12, Rancangan Sungai Manila, Jalan Luboh, 90009 Sandakan, Sabah, Malaysia (Workshop)</li>
+                    <li>3L 1-2, Country Heights Apartment, Jalan Bantayan-Inanam, 88450 Penampang, Sabah, Malaysia (Mailing only)</li>
+                </ul>
+
+                <p><strong>Email:</strong></p>
+                <ul class="contact-list">
+                    <li>sitinursyuhada@masaneubotics.com (Director)</li>
+                    <li>sitinoraidah@masaneubotics.com (Affiliate)</li>
+                    <li>info@masaneubotics.com (Management)</li>
+                </ul>
+            </div>
         </section>
 
         <section id="services">
@@ -87,64 +299,69 @@
         <section id="current-projects">
             <h2>Current Projects</h2>
             <p>Masaneubotics is currently engaged in several cutting-edge projects, including:</p>
-            <ul>
-                <li>Assessment of Marine-Based Green Technologies and Sustainability Potential of Small Island (Pulau Libaran Sandakan Community Engagement)</li>
-                <li>Development of a Modular Miniature Steam-Based Power Generator for Off-Grid Domestic Applications (Masaneubotics's project) </li>
-            </ul>
+            <div class="project-grid">
+                <div class="card">Assessment of Marine-Based Green Technologies and Sustainability Potential of Small Island (Pulau Libaran Sandakan Community Engagement)</div>
+                <div class="card">Development of a Modular Miniature Steam-Based Power Generator for Off-Grid Domestic Applications (Masaneubotics project)</div>
+            </div>
         </section>
 
         <section id="past-projects">
             <h2>Past Projects</h2>
             <p>Here are some of our successful past projects:</p>
             <ul>
-                <li>Analog voltage source inverter prototyping (UMP-Under UMP's Fellowship Scheme: Fellow's Allowence)</li>
-                <li>Artificial neural networks rainfall forecasting system and its graphical user interface (UMP-Under JPA's undergraduate scholarship)</li>
-                <li>Experimental setup for induction motor drives motion analysis (UMP-Under UMP's fellowship scheme: Fellow's Allowence) </li>
-                <li>Testing rig for upper limb motion analysis (UMS-Under Research Grant: Research Assistance Budget) </li>
-                <li>Prototyping an amplifier circuit for bio-signal acquisition module (UMS-Under Research Grant: Research Assistance Budget)</li>
+                <li>Analog voltage source inverter prototyping (UMP — Under UMP’s Fellowship Scheme: Fellow’s Allowance)</li>
+                <li>Artificial neural networks rainfall forecasting system and its graphical user interface (UMP — Under JPA’s undergraduate scholarship)</li>
+                <li>Experimental setup for induction motor drives motion analysis (UMP — Under UMP’s fellowship scheme: Fellow’s Allowance)</li>
+                <li>Testing rig for upper limb motion analysis (UMS — Under Research Grant: Research Assistance Budget)</li>
+                <li>Prototyping an amplifier circuit for bio-signal acquisition module (UMS — Under Research Grant: Research Assistance Budget)</li>
             </ul>
         </section>
 
         <section id="pending-projects">
-            <h2>Pending Projects:Closed/Inactive</h2>
+            <h2>Pending Projects: Closed / Inactive</h2>
             <p>Here are some of our current pending projects:</p>
             <ul>
                 <li>Validation and reliability testing of artificial neural network system implementation in motor drives application (Inactive)</li>
             </ul>
         </section>
+
         <section id="sahabat-iqra">
             <h2>Sahabat Iqra</h2>
-            <p> For humanity, we share our venue through community programs tailored to high value of technological advancement </p>
-            <ul>
-                <li>Kelas Mengaji</li>
-                    <img src="link .png" alt="QR Code" style="width: 50px; height: auto;"></li>
-                    <li><span style="color: red;">New!</span> <a href="http://popoimnt.pythonanywhere.com/">Bazar Muhibah (Coming soon)</a> </li>
-                 
-            </ul>
-            <h2>Jadual Kelas Mengaji</h2>
-                <table border="1">
+            <p>For humanity, we share our venue through community programs tailored to high value of technological advancement.</p>
+
+            <div class="qr-wrap">
+                <img src="link .png" alt="QR Code for Sahabat Iqra">
+                <div>
+                    <ul>
+                        <li>Kelas Mengaji</li>
+                        <li><span class="badge">New!</span><a href="http://popoimnt.pythonanywhere.com/">Bazar Muhibah (Coming soon)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Jadual Kelas Mengaji</h3>
+            <table>
                 <thead>
-                <tr>
-                <th>Hari</th>
-                <th>Masa</th>
-                </tr>
+                    <tr>
+                        <th>Hari</th>
+                        <th>Masa</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr><td>Isnin</td><td>7:00 malam – 9:00 malam | IQRA 1-6 / Practical English</td></tr>
-                <tr><td>Selasa</td><td>7:00 malam – 9:00 malam | IQRA 1-6 / Practical English </td></tr>
-                <tr><td>Rabu</td><td>7:00 malam – 9:00 malam | IQRA 1-6 / Practical English </td></tr>
-                <tr><td>Khamis</td><td>7:00 malam – 9:00 malam | Al-Quran / Practical Math </td></tr>
-                <tr><td>Jumaat</td><td>7:00 malam – 9:00 malam | Al-Quran / Practical Math</td></tr>
-                <tr><td>Sabtu</td><td>7:00 malam – 9:00 malam | Al-Quran / Practical Math</td></tr>
-                <tr><td>Ahad</td><td>4:00 petang – 5:00 petang | Kelas Mengaji Dewasa [Wanita] </td></tr>
+                    <tr><td>Isnin</td><td>7:00 malam – 9:00 malam | IQRA 1–6 / Practical English</td></tr>
+                    <tr><td>Selasa</td><td>7:00 malam – 9:00 malam | IQRA 1–6 / Practical English</td></tr>
+                    <tr><td>Rabu</td><td>7:00 malam – 9:00 malam | IQRA 1–6 / Practical English</td></tr>
+                    <tr><td>Khamis</td><td>7:00 malam – 9:00 malam | Al-Quran / Practical Math</td></tr>
+                    <tr><td>Jumaat</td><td>7:00 malam – 9:00 malam | Al-Quran / Practical Math</td></tr>
+                    <tr><td>Sabtu</td><td>7:00 malam – 9:00 malam | Al-Quran / Practical Math</td></tr>
+                    <tr><td>Ahad</td><td>4:00 petang – 5:00 petang | Kelas Mengaji Dewasa [Wanita]</td></tr>
                 </tbody>
-</table>
-
+            </table>
         </section>
     </div>
-    <footer>
-        <p>&copy; 2025 masaneubotics. All rights reserved.</p>
-    </footer>
 
+    <footer>
+        <p>&copy; 2026 Masaneubotics. All rights reserved.</p>
+    </footer>
 </body>
 </html>
