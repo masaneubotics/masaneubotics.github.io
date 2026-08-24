@@ -7,15 +7,15 @@
     <title>Masa Neubotics Technology</title>
     <style>
         :root {
-            --bg: #f4f7fb;
+            --bg: #eef6ff;
             --panel: #ffffff;
-            --panel-alt: #eef4ff;
-            --primary: #133d75;
+            --panel-alt: #edf5ff;
+            --primary: #123b69;
             --primary-dark: #0d2a4e;
-            --accent: #1d7ae0;
+            --accent: #4a9ae8;
             --text: #1d2430;
             --muted: #5d677a;
-            --line: #dfe7f3;
+            --line: #dfeaf8;
             --success: #e7f9ee;
             --success-text: #156a3d;
             --warning: #fff4d8;
@@ -54,23 +54,40 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, #1f5ca9 0%, #123b69 100%);
             color: #fff;
-            padding: 42px 24px 32px;
+            padding: 24px 24px 18px;
             border-radius: 18px 18px 0 0;
             box-shadow: 0 10px 25px rgba(19, 61, 117, 0.15);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: clamp(2rem, 5vw, 3rem);
-            letter-spacing: 0.02em;
+        .brand-lockup {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle at 50% 40%, #ffffff 0%, #fffdf6 62%, #fbe7a7 100%);
+            border: 4px solid rgba(245, 180, 35, 0.98);
+            border-radius: 50%;
+            padding: 12px;
+            box-shadow: 0 0 0 4px rgba(245, 180, 35, 0.18), 0 10px 18px rgba(0, 0, 0, 0.12);
+            margin-top: 4px;
+        }
+
+        .brand-logo {
+            width: 101%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
         }
 
         .tagline {
-            margin: 10px 0 0;
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.88);
+            margin: 12px 0 0;
+            font-size: 1.02rem;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.01em;
         }
 
         nav {
@@ -90,8 +107,8 @@
             display: inline-block;
             padding: 8px 12px;
             border-radius: 999px;
-            background: #f3f8ff;
-            border: 1px solid #dfeeff;
+            background: #f1f8ff;
+            border: 1px solid #cfe6ff;
             font-size: 0.92rem;
             color: var(--primary-dark);
             font-weight: 600;
@@ -215,7 +232,7 @@
         footer {
             text-align: center;
             padding: 24px 20px 40px;
-            background: #dfeaf8;
+            background: #dfeefb;
             color: var(--primary-dark);
             font-weight: 600;
         }
@@ -228,6 +245,14 @@
 
             nav {
                 justify-content: center;
+            }
+
+            .brand-logo {
+                width: min(240px, 78%);
+            }
+
+            .brand-lockup {
+                padding: 8px 12px;
             }
 
             section {
@@ -243,7 +268,9 @@
 <body>
     <div class="content">
         <header>
-            <h1>Masa Neubotics Technology</h1>
+            <div class="brand-lockup">
+                <img class="brand-logo" src="seven_3-removebg-preview_3.png" alt="Masa Neubotics Technology logo" onerror="this.onerror=null;this.src='masaneubotics2023.PNG';">
+            </div>
             <p class="tagline">Robotics, automation, and applied engineering innovation for a smarter future.</p>
         </header>
 
