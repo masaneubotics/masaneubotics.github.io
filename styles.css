@@ -5,9 +5,9 @@
     --bg: #ffffff;
     --panel: #ffffff;
     --panel-alt: #f5f5f5;
-    --primary: #111111;            /* near-black */
-    --primary-dark: #000000;       /* pure black */
-    --accent: #111111;             /* accent = same as primary (no color) */
+    --primary: #111111;
+    --primary-dark: #000000;
+    --accent: #111111;
     --accent-dark: #000000;
     --text: #111111;
     --muted: #666666;
@@ -44,6 +44,40 @@ a:hover {
 }
 
 /* ============================================================
+   DEVELOPMENT NOTICE
+   ============================================================ */
+.dev-notice {
+    background: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 24px;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
+    border-bottom: 1px solid #333333;
+}
+
+.dev-notice p {
+    margin: 0;
+    max-width: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+.dev-notice strong {
+    font-weight: 700;
+}
+
+.dev-notice a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.dev-notice a:hover {
+    color: #c0c6cc;
+}
+
+/* ============================================================
    SHARED WIDTH HELPER
    ============================================================ */
 .header-inner,
@@ -56,7 +90,7 @@ a:hover {
 }
 
 /* ============================================================
-   HEADER — pure black with white logo ring
+   HEADER — pure black
    ============================================================ */
 .site-header {
     background: #000000;
@@ -68,10 +102,11 @@ a:hover {
 .header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    
+    justify-content: flex-start;         /* ← items hug left */
+    gap: 8px;
 }
 
+/* ---------- Standalone brand logo ---------- */
 .brand-lockup {
     display: inline-flex;
     align-items: center;
@@ -105,7 +140,7 @@ a:hover {
 }
 
 /* ============================================================
-   LOGO CHAIN — bigger chips
+   LOGO CHAIN
    ============================================================ */
 .logo-chain {
     flex: 1 1 auto;
@@ -115,7 +150,7 @@ a:hover {
     gap: 12px;
     flex-wrap: wrap;
     min-width: 0;
-    margin-left: clamp(12px, 2vw, 24px);
+    margin-left: 8px;                    /* ← hugs the main logo */
 }
 
 .chain-node {
@@ -154,18 +189,20 @@ a:hover {
     text-decoration: none;
 }
 
+/* Larger main logo when it's part of the chain */
 .chain-main {
     width: 112px;
     height: 112px;
     padding: 16px;
 }
 
+/* ---------- Arrow between nodes ---------- */
 .chain-arrow {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    font-size: 26px;
+    font-size: 24px;
     color: #c0c6cc;
     font-weight: 300;
     line-height: 1;
@@ -173,6 +210,7 @@ a:hover {
     opacity: 0.8;
 }
 
+/* ---------- The "···" end button ---------- */
 .chain-end {
     background: #ffffff;
     color: #000000;
@@ -192,42 +230,8 @@ a:hover {
     padding-bottom: 3px;
 }
 
-/* ---------- Arrow between nodes ---------- */
-.chain-arrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-    font-size: 22px;
-    color: #c0c6cc;              /* chrome silver */
-    font-weight: 300;
-    line-height: 1;
-    user-select: none;
-    opacity: 0.8;
-}
-
-/* ---------- The "···" end button ---------- */
-.chain-end {
-    background: #ffffff;
-    color: #000000;
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-
-.chain-end:hover {
-    background: #000000;
-    color: #ffffff;
-    border-color: #ffffff;
-}
-
-.chain-end-dots {
-    line-height: 1;
-    letter-spacing: 1px;
-    padding-bottom: 3px;
-}
-
 /* ============================================================
-   NAV — white bar, gray rectangles, black on hover
+   NAV
    ============================================================ */
 .site-nav {
     background: #ffffff;
@@ -305,14 +309,13 @@ a:hover {
 }
 
 /* ============================================================
-   BANDS — spacious, all white
+   BANDS
    ============================================================ */
 .band {
     padding: 80px 0;
     background: #ffffff;
 }
 
-/* ---- Band heading with black underline ---- */
 .band h2 {
     margin: 0 0 40px;
     color: var(--primary-dark);
@@ -335,7 +338,6 @@ a:hover {
     border-radius: 2px;
 }
 
-/* ---- Subheadings ---- */
 .band h3 {
     margin: 48px 0 20px;
     color: var(--primary-dark);
@@ -343,7 +345,6 @@ a:hover {
     font-weight: 700;
 }
 
-/* ---- Paragraphs ---- */
 .band p {
     margin: 0 0 1.5em;
     color: var(--text);
@@ -351,7 +352,6 @@ a:hover {
     font-size: 1.02rem;
 }
 
-/* ---- Lists ---- */
 .band ul {
     margin: 0 0 1.5em 1.4em;
     padding: 0;
@@ -364,7 +364,7 @@ a:hover {
 }
 
 /* ============================================================
-   TWO-COLUMN BAND LAYOUT (content + sidebar)
+   TWO-COLUMN LAYOUT
    ============================================================ */
 .layout-2col {
     display: grid;
@@ -387,7 +387,7 @@ a:hover {
 }
 
 /* ============================================================
-   AD LABEL (used in sidebar)
+   AD LABEL + SIDEBAR QR
    ============================================================ */
 .ad-label {
     font-size: 0.7rem;
@@ -398,9 +398,6 @@ a:hover {
     margin: 0 0 10px;
 }
 
-/* ============================================================
-   SIDEBAR QR
-   ============================================================ */
 .sidebar-qr {
     display: block;
     width: 160px;
@@ -413,7 +410,7 @@ a:hover {
 }
 
 /* ============================================================
-   BADGE — black
+   BADGE
    ============================================================ */
 .badge {
     display: inline-block;
@@ -429,7 +426,7 @@ a:hover {
 }
 
 /* ============================================================
-   FOOTER — pure black
+   FOOTER
    ============================================================ */
 .site-footer {
     background: #000000;
@@ -452,6 +449,8 @@ a:hover {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+/* ---------- Tablet & smaller ---------- */
 @media (max-width: 900px) {
     .layout-2col {
         grid-template-columns: 1fr;
@@ -463,17 +462,61 @@ a:hover {
     }
 }
 
+/* ---------- Mobile — chain becomes scrollable ---------- */
 @media (max-width: 800px) {
+    /* Stack main logo above chain */
+    .header-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    /* Scrollable chain */
     .logo-chain {
-        display: none;
+        margin-left: 0;
+        max-width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 4px 0 12px;
+        -webkit-overflow-scrolling: touch;
+
+        /* Subtle scrollbar */
+        scrollbar-width: thin;
+        scrollbar-color: #666666 #1a1a1a;
+    }
+
+    .logo-chain::-webkit-scrollbar {
+        height: 6px;
+    }
+    .logo-chain::-webkit-scrollbar-track {
+        background: #1a1a1a;
+        border-radius: 3px;
+    }
+    .logo-chain::-webkit-scrollbar-thumb {
+        background: #666666;
+        border-radius: 3px;
+    }
+
+    /* Smaller chips on mobile */
+    .chain-node {
+        width: 64px;
+        height: 64px;
+        padding: 8px;
+    }
+
+    .chain-main {
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+    }
+
+    .chain-arrow {
+        font-size: 18px;
     }
 
     .nav-others {
         display: inline-block;
-    }
-
-    .header-inner {
-        justify-content: center;
     }
 
     .band {
@@ -485,6 +528,7 @@ a:hover {
     }
 }
 
+/* ---------- Small mobile ---------- */
 @media (max-width: 640px) {
     .header-inner,
     .nav-inner,
@@ -517,39 +561,4 @@ a:hover {
     .band li {
         font-size: 0.98rem;
     }
-}
-
-/* ============================================================
-   DEVELOPMENT NOTICE
-   ============================================================ */
-.dev-notice {
-    background: #111111;
-    color: #ffffff;
-    text-align: center;
-    padding: 12px 24px;
-    font-size: 0.88rem;
-    letter-spacing: 0.01em;
-    border-bottom: 1px solid #333333;
-}
-
-.dev-notice p {
-    margin: 0;
-    max-width: none;
-    color: inherit;
-    font-size: inherit;
-}
-
-.dev-notice strong {
-    font-weight: 700;
-}
-
-.dev-notice a {
-    color: #ffffff;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
-
-.dev-notice a:hover {
-    color: #c0c6cc;
-    text-decoration: underline;
 }
