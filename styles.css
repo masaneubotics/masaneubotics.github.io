@@ -1,17 +1,19 @@
+/* ============================================================
+   ROOT VARIABLES — Black & White
+   ============================================================ */
 :root {
-    --bg: #eef6ff;
+    --bg: #ffffff;
     --panel: #ffffff;
-    --panel-alt: #edf5ff;
-    --primary: #123b69;
-    --primary-dark: #0d2a4e;
-    --accent: #4a9ae8;
-    --text: #1d2430;
-    --muted: #5d677a;
-    --line: #dfeaf8;
-    --success: #e7f9ee;
-    --success-text: #156a3d;
-    --warning: #fff4d8;
-    --warning-text: #7a4a00;
+    --panel-alt: #f5f5f5;
+    --primary: #111111;            /* near-black */
+    --primary-dark: #000000;       /* pure black */
+    --accent: #111111;             /* accent = same as primary (no color) */
+    --accent-dark: #000000;
+    --text: #111111;
+    --muted: #666666;
+    --line: #e0e0e0;
+    --silver: #cccccc;
+    --silver-light: #eeeeee;
 }
 
 * {
@@ -25,9 +27,10 @@ html {
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 100%);
+    background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 a {
@@ -36,222 +39,517 @@ a {
 }
 
 a:hover {
+    color: var(--accent-dark);
     text-decoration: underline;
 }
 
-.content {
-    max-width: 1100px;
+/* ============================================================
+   SHARED WIDTH HELPER
+   ============================================================ */
+.header-inner,
+.nav-inner,
+.band-inner,
+.footer-inner {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 24px 20px 60px;
+    padding: 0 32px;
 }
 
-header {
-    background: linear-gradient(135deg, #1f5ca9 0%, #123b69 100%);
-    color: #fff;
-    padding: 24px 24px 18px;
-    border-radius: 18px 18px 0 0;
-    box-shadow: 0 10px 25px rgba(19, 61, 117, 0.15);
+/* ============================================================
+   HEADER — pure black with white logo ring
+   ============================================================ */
+.site-header {
+    background: #000000;
+    color: #ffffff;
+    padding: 16px 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
 }
 
 .brand-lockup {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle at 50% 40%, #ffffff 0%, #fffdf6 62%, #fbe7a7 100%);
-    border: 4px solid rgba(245, 180, 35, 0.98);
+    width: 96px;
+    height: 96px;
+    flex: 0 0 auto;
+    background: #ffffff;
+    border: 3px solid #ffffff;
     border-radius: 50%;
-    padding: 12px;
-    box-shadow: 0 0 0 4px rgba(245, 180, 35, 0.18), 0 10px 18px rgba(0, 0, 0, 0.12);
-    margin-top: 4px;
+    padding: 10px;
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.25),
+        0 6px 16px rgba(0, 0, 0, 0.4);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.brand-lockup:hover {
+    transform: scale(1.12);
+    box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.45),
+        0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 .brand-logo {
-    width: 126%;
     max-width: 100%;
+    max-height: 100%;
+    width: auto;
     height: auto;
     display: block;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
 }
 
-.tagline {
-    margin: 12px 0 0;
-    font-size: 1.02rem;
-    color: rgba(255, 255, 255, 0.9);
-    letter-spacing: 0.01em;
-}
-
-nav {
+/* ============================================================
+   LOGO CHAIN — bigger chips
+   ============================================================ */
+.logo-chain {
+    flex: 1 1 auto;
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
     flex-wrap: wrap;
-    gap: 10px;
-    background: var(--panel);
-    padding: 18px 20px;
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.03);
+    min-width: 0;
+    margin-left: clamp(12px, 2vw, 24px);
+}
+
+.chain-node {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    flex: 0 0 auto;
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    padding: 14px;
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.35);
+    transition: transform .2s ease, box-shadow .2s ease;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.chain-node img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.chain-node:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.4),
+        0 6px 16px rgba(0, 0, 0, 0.45);
+    text-decoration: none;
+}
+
+.chain-main {
+    width: 112px;
+    height: 112px;
+    padding: 16px;
+}
+
+.chain-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    font-size: 26px;
+    color: #c0c6cc;
+    font-weight: 300;
+    line-height: 1;
+    user-select: none;
+    opacity: 0.8;
+}
+
+.chain-end {
+    background: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.chain-end:hover {
+    background: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.chain-end-dots {
+    line-height: 1;
+    letter-spacing: 1px;
+    padding-bottom: 3px;
+}
+
+/* ---------- Arrow between nodes ---------- */
+.chain-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    font-size: 22px;
+    color: #c0c6cc;              /* chrome silver */
+    font-weight: 300;
+    line-height: 1;
+    user-select: none;
+    opacity: 0.8;
+}
+
+/* ---------- The "···" end button ---------- */
+.chain-end {
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.chain-end:hover {
+    background: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.chain-end-dots {
+    line-height: 1;
+    letter-spacing: 1px;
+    padding-bottom: 3px;
+}
+
+/* ============================================================
+   NAV — white bar, gray rectangles, black on hover
+   ============================================================ */
+.site-nav {
+    background: #ffffff;
     position: sticky;
     top: 0;
     z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-nav a {
+.nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 32px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.nav-inner a {
     display: inline-block;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: #f1f8ff;
-    border: 1px solid #cfe6ff;
+    padding: 10px 22px;
+    border-radius: 6px;
+    background: #f0f0f0;
+    border: 1px solid #d6d6d6;
     font-size: 0.92rem;
-    color: var(--primary-dark);
+    color: var(--primary);
     font-weight: 600;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
 }
 
-section {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 28px 24px;
-    margin-top: 22px;
-    box-shadow: 0 8px 18px rgba(16, 32, 52, 0.04);
+.nav-inner a:hover {
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
+    transform: translateY(-1px);
+    text-decoration: none;
 }
 
-section h2 {
-    margin-top: 0;
+.nav-others {
+    display: inline-block;
+}
+
+/* ---------- Date & time ---------- */
+.nav-datetime {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.3;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.nav-datetime #current-time {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.92rem;
+}
+
+.nav-datetime #current-location {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+}
+
+/* ============================================================
+   BANDS — spacious, all white
+   ============================================================ */
+.band {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+/* ---- Band heading with black underline ---- */
+.band h2 {
+    margin: 0 0 40px;
     color: var(--primary-dark);
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    border-bottom: 2px solid var(--line);
-    padding-bottom: 12px;
-    margin-bottom: 18px;
+    font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    position: relative;
+    padding-bottom: 16px;
 }
 
-p {
-    margin: 0 0 1em;
-    text-align: justify;
+.band h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background: #000000;
+    border-radius: 2px;
+}
+
+/* ---- Subheadings ---- */
+.band h3 {
+    margin: 48px 0 20px;
+    color: var(--primary-dark);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* ---- Paragraphs ---- */
+.band p {
+    margin: 0 0 1.5em;
     color: var(--text);
+    max-width: 68ch;
+    font-size: 1.02rem;
 }
 
-ul {
-    margin: 0 0 0 1.2rem;
+/* ---- Lists ---- */
+.band ul {
+    margin: 0 0 1.5em 1.4em;
     padding: 0;
+    max-width: 68ch;
 }
 
-li {
-    margin-bottom: 0.55rem;
+.band li {
+    margin-bottom: 0.8rem;
+    font-size: 1.02rem;
 }
 
-.contact-block {
-    background: var(--panel-alt);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 18px 20px;
+/* ============================================================
+   TWO-COLUMN BAND LAYOUT (content + sidebar)
+   ============================================================ */
+.layout-2col {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 60px;
+    align-items: start;
 }
 
-.contact-block strong {
-    color: var(--primary-dark);
+.band-content {
+    min-width: 0;
+    max-width: 68ch;
 }
 
-.contact-list {
-    margin: 0;
-    padding-left: 1.2rem;
+.band-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 90px;
 }
 
-.contact-list li {
-    margin-bottom: 0.7rem;
+/* ============================================================
+   AD LABEL (used in sidebar)
+   ============================================================ */
+.ad-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #000000;
+    margin: 0 0 10px;
 }
 
+/* ============================================================
+   SIDEBAR QR
+   ============================================================ */
+.sidebar-qr {
+    display: block;
+    width: 160px;
+    height: auto;
+    margin: 12px auto 0;
+    border: none;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+}
+
+/* ============================================================
+   BADGE — black
+   ============================================================ */
 .badge {
     display: inline-block;
-    background: var(--warning);
-    color: var(--warning-text);
+    background: #000000;
+    color: #ffffff;
     font-weight: 700;
-    font-size: 0.8rem;
-    padding: 5px 10px;
+    font-size: 0.75rem;
+    padding: 5px 11px;
     border-radius: 999px;
-    margin-right: 8px;
+    margin-right: 10px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
-.project-grid {
-    display: grid;
-    gap: 18px;
-}
-
-.card {
-    background: var(--panel-alt);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 16px 18px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 12px;
-    overflow: hidden;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    background: #fff;
-}
-
-th, td {
-    border: 1px solid var(--line);
-    padding: 12px 14px;
-    text-align: left;
-    vertical-align: top;
-}
-
-th {
-    background: var(--panel-alt);
-    color: var(--primary-dark);
-}
-
-.qr-wrap {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-    margin-top: 12px;
-}
-
-.qr-wrap img {
-    width: 120px;
-    height: auto;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    background: #fff;
-    padding: 8px;
-}
-
-footer {
+/* ============================================================
+   FOOTER — pure black
+   ============================================================ */
+.site-footer {
+    background: #000000;
+    color: #ffffff;
+    padding: 36px 0;
     text-align: center;
-    padding: 24px 20px 40px;
-    background: #dfeefb;
-    color: var(--primary-dark);
-    font-weight: 600;
 }
 
-@media (max-width: 640px) {
-    .content {
-        padding-left: 12px;
-        padding-right: 12px;
+.footer-inner p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.footer-inner a {
+    color: #ffffff;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+    .layout-2col {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 
-    nav {
+    .band-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 800px) {
+    .logo-chain {
+        display: none;
+    }
+
+    .nav-others {
+        display: inline-block;
+    }
+
+    .header-inner {
         justify-content: center;
     }
 
-    .brand-logo {
-        width: min(240px, 78%);
+    .band {
+        padding: 60px 0;
+    }
+
+    .band h2 {
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 640px) {
+    .header-inner,
+    .nav-inner,
+    .band-inner,
+    .footer-inner {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .nav-inner {
+        justify-content: center;
     }
 
     .brand-lockup {
-        padding: 8px 12px;
+        width: 80px;
+        height: 80px;
+        padding: 8px;
     }
 
-    section {
-        padding: 22px 18px;
+    .band {
+        padding: 48px 0;
     }
 
-    th, td {
-        padding: 10px 8px;
+    .band h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
     }
+
+    .band p,
+    .band li {
+        font-size: 0.98rem;
+    }
+}
+
+/* ============================================================
+   DEVELOPMENT NOTICE
+   ============================================================ */
+.dev-notice {
+    background: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 24px;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
+    border-bottom: 1px solid #333333;
+}
+
+.dev-notice p {
+    margin: 0;
+    max-width: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+.dev-notice strong {
+    font-weight: 700;
+}
+
+.dev-notice a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.dev-notice a:hover {
+    color: #c0c6cc;
+    text-decoration: underline;
 }
