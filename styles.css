@@ -466,20 +466,27 @@ a:hover {
 @media (max-width: 800px) {
     /* Stack main logo above chain */
     .header-inner {
+        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 16px;
+        overflow: visible;                /* ← ensure nothing clips */
     }
 
     /* Scrollable chain */
     .logo-chain {
-        margin-left: 0;
+        flex: 0 0 auto;                    /* ← don't grow/shrink */
+        display: flex;
+        flex-wrap: nowrap;                 /* ← keep on one row */
+        width: 100%;                       /* ← fill the parent */
         max-width: 100%;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
+        margin-left: 0;
+        gap: 10px;
         padding: 4px 0 12px;
+        overflow-x: auto;                  /* ← enable scroll */
+        overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
 
         /* Subtle scrollbar */
         scrollbar-width: thin;
@@ -496,6 +503,13 @@ a:hover {
     .logo-chain::-webkit-scrollbar-thumb {
         background: #666666;
         border-radius: 3px;
+    }
+
+    /* Prevent chips and arrows from shrinking */
+    .chain-node,
+    .chain-main,
+    .chain-arrow {
+        flex-shrink: 0;                    /* ← KEY — stops shrinking */
     }
 
     /* Smaller chips on mobile */
@@ -525,40 +539,5 @@ a:hover {
 
     .band h2 {
         margin-bottom: 32px;
-    }
-}
-
-/* ---------- Small mobile ---------- */
-@media (max-width: 640px) {
-    .header-inner,
-    .nav-inner,
-    .band-inner,
-    .footer-inner {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .nav-inner {
-        justify-content: center;
-    }
-
-    .brand-lockup {
-        width: 80px;
-        height: 80px;
-        padding: 8px;
-    }
-
-    .band {
-        padding: 48px 0;
-    }
-
-    .band h2 {
-        font-size: 1.5rem;
-        margin-bottom: 24px;
-    }
-
-    .band p,
-    .band li {
-        font-size: 0.98rem;
     }
 }
