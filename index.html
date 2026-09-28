@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <!-- ============================================================
          DEVELOPMENT NOTICE
          ============================================================ -->
@@ -26,14 +27,13 @@
          ============================================================ -->
     <header class="site-header">
         <div class="header-inner">
-            <a href="index.html" class="brand-lockup" aria-label="Masa Neubotics Technology — Home">
-                <img class="brand-logo" src="logo.png" alt="Masa Neubotics Technology Logo">
-            </a>
-                
+      <!-- Logo chain — starts with Child 1 (no leading arrow) -->
             <div class="logo-chain">
+                <a href="index.html" class="brand-lockup" aria-label="Masa Neubotics Technology — Home">
+                    <img class="brand-logo" src="logo.png" alt="Masa Neubotics Technology Logo">
+                </a>
+             <span class="chain-arrow" aria-hidden="true">→</span>
                
-                <span class="chain-arrow" aria-hidden="true">→</span>
-
                 <!-- Child 1 -->
                 <a href="child1.html" class="chain-node" aria-label="Child 1">
                     <img src="logo-child1.png" alt="Child 1">
@@ -73,6 +73,7 @@
                 <a href="others.html" class="chain-node chain-end" aria-label="Others" title="Others">
                     <span class="chain-end-dots">···</span>
                 </a>
+
             </div>
         </div>
     </header>
@@ -81,60 +82,62 @@
          NAV — full width, sticky
          ============================================================ -->
     <nav class="site-nav">
-    <div class="nav-inner">
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#iqra-community">CSR</a>
-            <a href="others.html" class="nav-others">Join Us</a>
-        </div>
+        <div class="nav-inner">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#iqra-community">CSR</a>
+                <a href="others.html" class="nav-others">Join Us</a>
+            </div>
 
-        <div class="nav-datetime" aria-label="Current date, time, and location">
-            <span id="current-date">—</span>
-            <span id="current-time">—</span>
-            <span id="current-location">—</span>
+            <div class="nav-datetime" aria-label="Current date, time, and location">
+                <span id="current-date">—</span>
+                <span id="current-time">—</span>
+                <span id="current-location">—</span>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <!-- ============================================================
          ABOUT — 2-column: content + sidebar
          ============================================================ -->
     <section id="about" class="band">
-    <div class="band-inner layout-2col">
-        <div class="band-content">
-                    <h2>About Us</h2>
+        <div class="band-inner layout-2col">
 
-                    <p>Masa Neubotics Technology was founded by Siti Nursyuhada Mahsahirun on August 8, 2022, in Pekan, Pahang, Malaysia, while she was pursuing her PhD. Her research focused on the implementation of Artificial Neural Networks in induction motor drive systems.</p>
+            <div class="band-content">
+                <h2>About Us</h2>
 
-                    <p>Siti earned her Bachelor's Degree in Electrical Engineering from UMP in 2010, formerly known as UTM-Pahang and later KUKTEM. However, BEM did not recognise her undergraduate degree, and she was therefore unable to register as a graduate electrical engineer in Malaysia. She continued her studies and earned a Master's Degree in Mechatronic Engineering by Research in power electronics and induction motor drives from the same university in 2016.</p>
+                <p>Masa Neubotics Technology was founded by Siti Nursyuhada Mahsahirun on August 8, 2022, in Pekan, Pahang, Malaysia, while she was pursuing her PhD. Her research focused on the implementation of Artificial Neural Networks in induction motor drive systems.</p>
 
-                    <p>Due to limited resources, she was unable to complete her PhD. In 2023, she returned to her home state of Sabah as a PhD dropout and continued building the business from scratch.</p>
+                <p>Siti earned her Bachelor's Degree in Electrical Engineering from UMP in 2010, formerly known as UTM-Pahang and later KUKTEM. However, BEM did not recognise her undergraduate degree, and she was therefore unable to register as a graduate electrical engineer in Malaysia. She continued her studies and earned a Master's Degree in Mechatronic Engineering by Research in power electronics and induction motor drives from the same university in 2016.</p>
 
-                    <p>In 2024, as the business faced difficulties sustaining itself due to multi-level politics and bureaucratic hurdles, she established Ninja Market, an online retail and services platform. In 2026, she founded De Geeks and Jalur Lintang to explore photolithography and software development.</p>
+                <p>Due to limited resources, she was unable to complete her PhD. In 2023, she returned to her home state of Sabah as a PhD dropout and continued building the business from scratch.</p>
 
-                    <p>Before Masa Neubotics, Siti had already been providing voluntary assistance to the community in Tanjung Selangor, Pekan. As children from surrounding villages began coming to her home to learn Quran, the community gradually grew and became informally known as Sahabat IQRA.</p>
+                <p>In 2024, as the business faced difficulties sustaining itself due to multi-level politics and bureaucratic hurdles, she established Ninja Market, an online retail and services platform. In 2026, she founded De Geeks and Jalur Lintang to explore photolithography and software development.</p>
 
-                    <p>In 2025, Siti applied to register IQRA Community with the Registrar of Societies (ROS), but the application was rejected. Today, IQRA Community continues as the official CSR brand of Masa Neubotics Technology, committed to building communities that uphold the values of innovation, quintessential, resilience, and advancement.</p>
+                <p>Before Masa Neubotics, Siti had already been providing voluntary assistance to the community in Tanjung Selangor, Pekan. As children from surrounding villages began coming to her home to learn Quran, the community gradually grew and became informally known as Sahabat IQRA.</p>
+
+                <p>In 2025, Siti applied to register IQRA Community with the Registrar of Societies (ROS), but the application was rejected. Today, IQRA Community continues as the official CSR brand of Masa Neubotics Technology, committed to building communities that uphold the values of innovation, quintessential, resilience, and advancement.</p>
+            </div>
+
+            <aside class="band-sidebar">
+                <div class="ad-box">
+                    <p class="ad-label">Advertisement</p>
+                    <p>Your ad or promo here</p>
                 </div>
 
-                <aside class="band-sidebar">
-                    <div class="ad-box">
-                        <p class="ad-label">Advertisement</p>
-                        <p>Your ad or promo here</p>
-                    </div>
+                <div class="ad-box">
+                    <p class="ad-label">Latest</p>
+                    <ul>
+                        <li><a href="#">News item 1</a></li>
+                        <li><a href="#">News item 2</a></li>
+                        <li><a href="#">News item 3</a></li>
+                    </ul>
+                </div>
+            </aside>
 
-                    <div class="ad-box">
-                        <p class="ad-label">Latest</p>
-                        <ul>
-                            <li><a href="#">News item 1</a></li>
-                            <li><a href="#">News item 2</a></li>
-                            <li><a href="#">News item 3</a></li>
-                        </ul>
-                    </div>
-                </aside>
-            </div>
-        </section>
+        </div>
+    </section>
 
     <!-- ============================================================
          SERVICES — 2-column: content + sidebar
@@ -142,7 +145,6 @@
     <section id="services" class="band">
         <div class="band-inner layout-2col">
 
-            <!-- ===== CONTENT ===== -->
             <div class="band-content">
                 <h2>Our Services</h2>
                 <ul>
@@ -152,7 +154,6 @@
                 </ul>
             </div>
 
-            <!-- ===== SIDEBAR ===== -->
             <aside class="band-sidebar">
                 <div class="ad-box">
                     <p class="ad-label">Featured</p>
@@ -172,35 +173,32 @@
         </div>
     </section>
 
-   <!-- ============================================================
-     IQRA COMMUNITY — 2-column: content + sidebar
-     ============================================================ -->
-<section id="iqra-community" class="band">
-    <div class="band-inner layout-2col">
+    <!-- ============================================================
+         IQRA COMMUNITY — 2-column: content + sidebar
+         ============================================================ -->
+    <section id="iqra-community" class="band">
+        <div class="band-inner layout-2col">
 
-        <!-- ===== CONTENT ===== -->
-        <div class="band-content">
-            <h2>CSR: IQRA Community</h2>
+            <div class="band-content">
+                <h2>CSR: IQRA Community</h2>
 
-            <p>In the IQRA community, we provide voluntary community services and initiatives, including assistance with long-delayed strata and other property title matters, free skills classes, workshops, training, and other activities that promote a stronger sense of belonging and togetherness.</p>
+                <p>In the IQRA community, we provide voluntary community services and initiatives, including assistance with long-delayed strata and other property title matters, free skills classes, workshops, training, and other activities that promote a stronger sense of belonging and togetherness.</p>
 
-            <p>IQRA stands for Innovative, Quintessential, Resilience, and Advanced.</p>
+                <p>IQRA stands for Innovative, Quintessential, Resilience, and Advanced.</p>
 
-            <p><strong>Contact:</strong> <a href="mailto:iqra@masaneubotics.com">iqra@masaneubotics.com</a></p>
-        </div>
-
-        <!-- ===== SIDEBAR ===== -->
-            <aside class="band-sidebar">
-            <div class="ad-box">
-                <p class="ad-label">Join our WhatsApp Group</p>
-                <p>Scan the QR code to join the IQRA community</p>
-                <img class="sidebar-qr" src="link.png" alt="QR code to join the IQRA WhatsApp group">
+                <p><strong>Contact:</strong> <a href="mailto:iqra@masaneubotics.com">iqra@masaneubotics.com</a></p>
             </div>
-          
-        </aside>
 
-    </div>
-</section>
+            <aside class="band-sidebar">
+                <div class="ad-box">
+                    <p class="ad-label">Join our WhatsApp Group</p>
+                    <p>Scan the QR code to join the IQRA community</p>
+                    <img class="sidebar-qr" src="link.png" alt="QR code to join the IQRA WhatsApp group">
+                </div>
+            </aside>
+
+        </div>
+    </section>
 
     <!-- ============================================================
          FOOTER — full width
