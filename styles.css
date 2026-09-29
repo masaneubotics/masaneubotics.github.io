@@ -102,7 +102,8 @@ a:hover {
 .header-inner {
     display: flex;
     align-items: center;
-    justify-content: flex-start;         /* ← items hug left */
+    justify-content: flex-start;
+    /* ← items hug left */
     gap: 8px;
 }
 
@@ -150,7 +151,8 @@ a:hover {
     gap: 12px;
     flex-wrap: wrap;
     min-width: 0;
-    margin-left: 8px;                    /* ← hugs the main logo */
+    margin-left: 8px;
+    
 }
 
 .chain-node {
@@ -464,26 +466,32 @@ a:hover {
 
 /* ---------- Mobile — chain becomes scrollable ---------- */
 @media (max-width: 800px) {
+
     /* Stack main logo above chain */
     .header-inner {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 16px;
-        overflow: visible;                /* ← ensure nothing clips */
+        overflow: visible;
+        /* ← ensure nothing clips */
     }
 
     /* Scrollable chain */
     .logo-chain {
-        flex: 0 0 auto;                    /* ← don't grow/shrink */
+        flex: 0 0 auto;
+        /* ← don't grow/shrink */
         display: flex;
-        flex-wrap: nowrap;                 /* ← keep on one row */
-        width: 100%;                       /* ← fill the parent */
+        flex-wrap: nowrap;
+        /* ← keep on one row */
+        width: 100%;
+        /* ← fill the parent */
         max-width: 100%;
         margin-left: 0;
         gap: 10px;
         padding: 4px 0 12px;
-        overflow-x: auto;                  /* ← enable scroll */
+        overflow-x: auto;
+        /* ← enable scroll */
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         justify-content: flex-start;
@@ -496,10 +504,12 @@ a:hover {
     .logo-chain::-webkit-scrollbar {
         height: 6px;
     }
+
     .logo-chain::-webkit-scrollbar-track {
         background: #1a1a1a;
         border-radius: 3px;
     }
+
     .logo-chain::-webkit-scrollbar-thumb {
         background: #666666;
         border-radius: 3px;
@@ -509,7 +519,8 @@ a:hover {
     .chain-node,
     .chain-main,
     .chain-arrow {
-        flex-shrink: 0;                    /* ← KEY — stops shrinking */
+        flex-shrink: 0;
+        /* ← KEY — stops shrinking */
     }
 
     /* Smaller chips on mobile */
