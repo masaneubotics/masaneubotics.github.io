@@ -103,8 +103,8 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* ← items hug left */
     gap: 8px;
+    position: relative;   /* anchor for the scroll-hint bubble + fade */
 }
 
 /* ---------- Standalone brand logo ---------- */
@@ -152,7 +152,6 @@ a:hover {
     flex-wrap: wrap;
     min-width: 0;
     margin-left: 8px;
-    
 }
 
 .chain-node {
@@ -230,6 +229,13 @@ a:hover {
     line-height: 1;
     letter-spacing: 1px;
     padding-bottom: 3px;
+}
+
+/* ============================================================
+   SCROLL HINT BUBBLE — hidden by default, mobile-only via JS
+   ============================================================ */
+.scroll-hint-bubble {
+    display: none;   /* revealed only inside the mobile media query */
 }
 
 /* ============================================================
@@ -400,8 +406,12 @@ a:hover {
     margin: 0 0 10px;
 }
 
+.ad-box {
+    padding: 12px 16px 12px 20px;   /* ← uneven horizontal padding */
+}
+
 .sidebar-qr {
-    display: block;
+     display: block;
     width: 160px;
     height: auto;
     margin: 12px auto 0;
@@ -409,6 +419,7 @@ a:hover {
     padding: 0;
     background: none;
     border-radius: 0;
+    align-self: center;    /* ← this centers it inside the flex column */
 }
 
 /* ============================================================
@@ -474,29 +485,26 @@ a:hover {
         align-items: center;
         gap: 16px;
         overflow: visible;
-        /* ← ensure nothing clips */
+        position: relative;   /* anchor for bubble + fade */
     }
 
     /* Scrollable chain */
     .logo-chain {
         flex: 0 0 auto;
-        /* ← don't grow/shrink */
         display: flex;
         flex-wrap: nowrap;
-        /* ← keep on one row */
         width: 100%;
-        /* ← fill the parent */
         max-width: 100%;
         margin-left: 0;
         gap: 10px;
-        padding: 4px 0 12px;
+        padding: 4px 72px 12px 0;   /* right padding leaves room for the fade + arrow */
         overflow-x: auto;
-        /* ← enable scroll */
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         justify-content: flex-start;
+        position: relative;
 
-        /* Subtle scrollbar */
+        /* Subtle scrollbar (Firefox) */
         scrollbar-width: thin;
         scrollbar-color: #666666 #1a1a1a;
     }
@@ -520,7 +528,6 @@ a:hover {
     .chain-main,
     .chain-arrow {
         flex-shrink: 0;
-        /* ← KEY — stops shrinking */
     }
 
     /* Smaller chips on mobile */
@@ -538,6 +545,127 @@ a:hover {
 
     .chain-arrow {
         font-size: 18px;
+    }
+
+    /* ---------- Right-edge fade on the chain ---------- */
+    .header-inner::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 64px;
+        height: 100%;
+        pointer-events: none;
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.65) 55%,
+            #000 100%
+        );
+        z-index: 2;
+        opacity: 1;
+        transition: opacity 0.25s ease;
+    }
+
+    /* ---------- Nudging arrow ---------- */
+    .header-inner::before {
+        content: "›";
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        transform: translateY(-50%);
+        font-size: 1.9rem;
+        font-weight: 700;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        pointer-events: none;
+        z-index: 3;
+        opacity: 1;
+        transition: opacity 0.25s ease;
+        animation: chainNudge 1.6s ease-in-out infinite;
+    }
+
+    @keyframes chainNudge {
+        0%, 100% { transform: translateY(-50%) translateX(0);   opacity: 0.8; }
+        50%      { transform: translateY(-50%) translateX(4px); opacity: 1;   }
+    }
+
+    /* Hide fade + arrow when chain is scrolled to the end */
+    .header-inner.chain-at-end::before,
+    .header-inner.chain-at-end::after {
+        opacity: 0;
+    }
+
+    /* ---------- Scroll hint bubble ---------- */
+    .scroll-hint-bubble {
+        display: block;
+        position: absolute;
+        top: calc(50% + 8px);
+        right: 12px;
+        transform: translateY(0) scale(0.9);
+        transform-origin: top right;
+
+        background: #ffffff;
+        color: #111111;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        line-height: 1.2;
+        padding: 7px 12px 7px 10px;
+        border-radius: 999px;
+        white-space: nowrap;
+
+        box-shadow:
+            0 0 0 1px rgba(0, 0, 0, 0.08),
+            0 6px 18px rgba(0, 0, 0, 0.5);
+
+        pointer-events: none;
+        z-index: 4;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Little tail pointing up toward the arrow */
+    .scroll-hint-tail {
+        position: absolute;
+        top: -5px;
+        right: 20px;
+        width: 10px;
+        height: 10px;
+        background: #ffffff;
+        transform: rotate(45deg);
+        box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.06);
+    }
+
+    /* Star icon */
+    .scroll-hint-star {
+        display: inline-block;
+        margin-right: 5px;
+        color: #d4a017;
+        font-size: 0.9rem;
+        animation: starTwinkle 1.6s ease-in-out infinite;
+    }
+
+    @keyframes starTwinkle {
+        0%, 100% { opacity: 0.6; transform: scale(0.95); }
+        50%      { opacity: 1;   transform: scale(1.15); }
+    }
+
+    /* When JS adds .show, the bubble pops in */
+    .scroll-hint-bubble.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(6px) scale(1);
+    }
+
+    /* Keep it hidden once the chain is scrolled or dismissed */
+    .header-inner.chain-at-end .scroll-hint-bubble,
+    .header-inner.chain-hint-done .scroll-hint-bubble {
+        opacity: 0;
+        visibility: hidden;
     }
 
     .nav-others {
