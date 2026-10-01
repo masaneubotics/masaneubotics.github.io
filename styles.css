@@ -104,7 +104,8 @@ a:hover {
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
-    position: relative;   /* anchor for the scroll-hint bubble + fade */
+    position: relative;
+    /* anchor for the scroll-hint bubble + fade */
 }
 
 /* ---------- Standalone brand logo ---------- */
@@ -235,7 +236,8 @@ a:hover {
    SCROLL HINT BUBBLE — hidden by default, mobile-only via JS
    ============================================================ */
 .scroll-hint-bubble {
-    display: none;   /* revealed only inside the mobile media query */
+    display: none;
+    /* revealed only inside the mobile media query */
 }
 
 /* ============================================================
@@ -407,11 +409,12 @@ a:hover {
 }
 
 .ad-box {
-    padding: 12px 16px 12px 20px;   /* ← uneven horizontal padding */
+    padding: 12px 16px 12px 20px;
+    /* ← uneven horizontal padding */
 }
 
 .sidebar-qr {
-     display: block;
+    display: block;
     width: 160px;
     height: auto;
     margin: 12px auto 0;
@@ -419,7 +422,8 @@ a:hover {
     padding: 0;
     background: none;
     border-radius: 0;
-    align-self: center;    /* ← this centers it inside the flex column */
+    align-self: center;
+    /* ← this centers it inside the flex column */
 }
 
 /* ============================================================
@@ -485,7 +489,8 @@ a:hover {
         align-items: center;
         gap: 16px;
         overflow: visible;
-        position: relative;   /* anchor for bubble + fade */
+        position: relative;
+        /* anchor for bubble + fade */
     }
 
     /* Scrollable chain */
@@ -497,7 +502,8 @@ a:hover {
         max-width: 100%;
         margin-left: 0;
         gap: 10px;
-        padding: 4px 72px 12px 0;   /* right padding leaves room for the fade + arrow */
+        padding: 4px 72px 12px 0;
+        /* right padding leaves room for the fade + arrow */
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
@@ -556,12 +562,10 @@ a:hover {
         width: 64px;
         height: 100%;
         pointer-events: none;
-        background: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 0.65) 55%,
-            #000 100%
-        );
+        background: linear-gradient(to right,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.65) 55%,
+                #000 100%);
         z-index: 2;
         opacity: 1;
         transition: opacity 0.25s ease;
@@ -587,8 +591,17 @@ a:hover {
     }
 
     @keyframes chainNudge {
-        0%, 100% { transform: translateY(-50%) translateX(0);   opacity: 0.8; }
-        50%      { transform: translateY(-50%) translateX(4px); opacity: 1;   }
+
+        0%,
+        100% {
+            transform: translateY(-50%) translateX(0);
+            opacity: 0.8;
+        }
+
+        50% {
+            transform: translateY(-50%) translateX(4px);
+            opacity: 1;
+        }
     }
 
     /* Hide fade + arrow when chain is scrolled to the end */
@@ -650,8 +663,17 @@ a:hover {
     }
 
     @keyframes starTwinkle {
-        0%, 100% { opacity: 0.6; transform: scale(0.95); }
-        50%      { opacity: 1;   transform: scale(1.15); }
+
+        0%,
+        100% {
+            opacity: 0.6;
+            transform: scale(0.95);
+        }
+
+        50% {
+            opacity: 1;
+            transform: scale(1.15);
+        }
     }
 
     /* When JS adds .show, the bubble pops in */

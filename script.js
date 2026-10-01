@@ -7,14 +7,14 @@ function updateDateTime() {
     // Date: "Mon, 28 Sep 2026"
     const dateStr = now.toLocaleDateString('en-GB', {
         weekday: 'short',
-        day:   '2-digit',
+        day: '2-digit',
         month: 'short',
-        year:  'numeric'
+        year: 'numeric'
     });
 
     // Time: "14:32:07"
     const timeStr = now.toLocaleTimeString('en-GB', {
-        hour:   '2-digit',
+        hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
         hour12: false
@@ -85,7 +85,7 @@ detectCountry();
 // - Auto-dismisses the bubble after 3.5s or on first scroll.
 // ============================================================
 (function initChainScrollHint() {
-    const chain  = document.querySelector('.logo-chain');
+    const chain = document.querySelector('.logo-chain');
     const header = document.querySelector('.header-inner');
     const bubble = document.querySelector('.scroll-hint-bubble');
 
